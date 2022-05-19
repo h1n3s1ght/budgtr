@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/normalize.css" />
     <link rel="stylesheet" href="../public/skeleton.css" />
-    <!-- <script>
-         let bankAccount = 0; for (let i = 0; i < budget.length; i++{if (budget[i].amount >= 0){bankAccount = (bankAccount + budget[i].amount); } else { bankAccount = (bankAccount) + (budget[i].amount);}};
-    </script> -->
     <title>Budget Default</title>
   </head>
   <body>
     <nav>
       <a href="http://localhost:3000/budget/new"><button>Create a New Transaction</a></button>
     </nav>
-    <%  let currentAccount = 0; for (let i = 0; i < budget.length; i++) {if (budget[i].amount >= 0){bankAccount = (bankAccount + budget[i].amount);} else if (budget[i].amount < 0){bankAccount = (bankAccount - abs(budget[i].amount))} %>
+    <%  let bankAccount = 0; let incomeT = 0; let expenseT = 0; for (let i = 0; i < budget.length; i++) {if (budget[i].amount >= 0){incomeT+= budget[i].amount);} else if (budget[i].amount < 0){ expenseT += abs(budget[i].amount))} %>
     <h3>Your active account balance is: <%= bankAccount%></h3>
     <h1>Your Transactions:</h1>
     <div class="container">
