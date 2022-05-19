@@ -21,10 +21,11 @@
       <a href="http://localhost:3000/budget/new"><button>Create a New Transaction</a></button>
     </nav>
     <%  let incomeValue = 0; let expenseValue= 0; let bankAccount = 0; for (var a = 0; a < budget.length; a++) {if (budget[a].amount >= 0) {incomeValue += parseInt(budget[a].amount)} else {expenseValue += Math.abs(parseInt(budget[a].amount))}}; bankAccount = (incomeValue - expenseValue); console.log(expenseValue);console.log(incomeValue);console.log(bankAccount) %>
-    <h3>Your active account balance is: <%= bankAccount%></h3>
+    <h3>Your active account balance is: $<%= bankAccount%></h3>
     <h1>Your Transactions:</h1>
     <div class="container">
       <h3>Income:</h3>
+      <h5>Your total income is: $<%= incomeValue%></h5>
       <table>
         <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount > 0){  if (budget[i].amount >= 1000){%>
         <tr>
@@ -69,6 +70,7 @@
     </div>
     <div class="container">
       <h3>Expense:</h3>
+      <h5>Your total expenses are: $<%= expenseValue%></h5>
       <table>
         <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount <= 0){ %>
         <tr>
