@@ -6,19 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/normalize.css" />
     <link rel="stylesheet" href="../public/skeleton.css" />
+    <style>
+        .greenIncome {
+            background-color: lightgreen;
+        }
+        .redExpense {
+            background-color: #ff7f7f;
+        }
+    </style>
     <title>Budget Default</title>
   </head>
   <body>
     <nav>
       <a href="http://localhost:3000/budget/new"><button>Create a New Transaction</a></button>
     </nav>
-    <%  let bankAccount = 0; let incomeT = 0; let expenseT = 0; for (let i = 0; i < budget.length; i++) {if (budget[i].amount >= 0){incomeT+= budget[i].amount);} else if (budget[i].amount < 0){ expenseT += abs(budget[i].amount))} %>
+    <%  let incomeValue = 0; let expenseValue= 0; let bankAccount = 0; for (var a = 0; a < budget.length; a++) {if (budget[a].amount >= 0) {incomeValue += parseInt(budget[a].amount)} else {expenseValue += Math.abs(parseInt(budget[a].amount))}}; bankAccount = (incomeValue - expenseValue); console.log(expenseValue);console.log(incomeValue);console.log(bankAccount) %>
     <h3>Your active account balance is: <%= bankAccount%></h3>
     <h1>Your Transactions:</h1>
     <div class="container">
       <h3>Income:</h3>
       <table>
-        <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount > 0){ %>
+        <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount > 0){  if (budget[i].amount >= 1000){%>
+        <tr>
+          <td>
+            <a href="http://localhost:3000/budget/<%= i%>"
+              ><%= budget[i].name%> </a>
+          </td>
+          <td>
+              <%= budget[i].date%>
+          </td>
+          <td>
+              <%= budget[i].from%>
+          </td>
+          <td class="greenIncome">
+              <%= budget[i].amount%>
+          </td>
+          <td>
+              <%= budget[i].tags%>
+          </td>
+        </tr>
+        <% } else { %>
         <tr>
           <td>
             <a href="http://localhost:3000/budget/<%= i%>"
@@ -37,7 +64,7 @@
               <%= budget[i].tags%>
           </td>
         </tr>
-        <% }} %>
+        <% }}} %>
       </table>
     </div>
     <div class="container">
@@ -55,7 +82,7 @@
           <td>
               <%= budget[i].from%>
           </td>
-          <td>
+          <td class="redExpense">
               <%= budget[i].amount%>
           </td>
           <td>
