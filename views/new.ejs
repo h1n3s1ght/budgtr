@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../public/normalize.css" >
+    <link rel="stylesheet"  type="text/css" href="../public/skeleton.css" >
+    <title>Add New Transaction</title>
+  </head>
+  <body>
+      <div class="container">
+    <h1>Submit a new Financial Transaction</h1>
+    <form action="/budget" method="POST">
+      Name: <input type="text" placeholder="name" name="name" /> <br />
+      Date: <input type="date"  name="date" /> <br />
+      To/From: <input type="text" placeholder="to/from" name="from" /> <br />
+      Amount: <input type="number" placeholder="0" name="amount" /> <br />
+      Note: <input type="text" placeholder="notes here..." name="tags" /> <br />
+      <button type="submit" >Submit</button>
+      <a href="http://localhost:3000/budget"><button>Back</a></button>
+    </form>
+    </div>
+  </body>
+</html>

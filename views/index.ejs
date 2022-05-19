@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/normalize.css" />
+    <link rel="stylesheet" href="../public/skeleton.css" />
+    <!-- <script>
+         let bankAccount = 0; for (let i = 0; i < budget.length; i++{if (budget[i].amount >= 0){bankAccount = (bankAccount + budget[i].amount); } else { bankAccount = (bankAccount) + (budget[i].amount);}};
+    </script> -->
+    <title>Budget Default</title>
+  </head>
+  <body>
+    <nav>
+      <a href="http://localhost:3000/budget/new"><button>Create a New Transaction</a></button>
+    </nav>
+    <%  let currentAccount = 0; for (let i = 0; i < budget.length; i++) {if (budget[i].amount >= 0){bankAccount = (bankAccount + budget[i].amount);} else if (budget[i].amount < 0){bankAccount = (bankAccount - abs(budget[i].amount))} %>
+    <h3>Your active account balance is: <%= bankAccount%></h3>
+    <h1>Your Transactions:</h1>
+    <div class="container">
+      <h3>Income:</h3>
+      <table>
+        <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount > 0){ %>
+        <tr>
+          <td>
+            <a href="http://localhost:3000/budget/<%= i%>"
+              ><%= budget[i].name%> </a>
+          </td>
+          <td>
+              <%= budget[i].date%>
+          </td>
+          <td>
+              <%= budget[i].from%>
+          </td>
+          <td>
+              <%= budget[i].amount%>
+          </td>
+          <td>
+              <%= budget[i].tags%>
+          </td>
+        </tr>
+        <% }} %>
+      </table>
+    </div>
+    <div class="container">
+      <h3>Expense:</h3>
+      <table>
+        <% for (let i = 0; i < budget.length; i++) {%> <% if (budget[i].amount <= 0){ %>
+        <tr>
+         <td>
+            <a href="http://localhost:3000/budget/<%= i%>"
+              ><%= budget[i].name%> </a>
+          </td>
+          <td>
+              <%= budget[i].date%>
+          </td>
+          <td>
+              <%= budget[i].from%>
+          </td>
+          <td>
+              <%= budget[i].amount%>
+          </td>
+          <td>
+              <%= budget[i].tags%>
+          </td>
+        </tr>
+        <% }} %>
+      </table>
+    </div>
+  </body>
+</html>

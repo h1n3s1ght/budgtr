@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="../public/normalize.css" />
+    <link rel="stylesheet" href="../public/skeleton.css" />
+    <title>Details of Transaction</title>
+</head>
+<body>
+    <h1>Details of Transaction <em><%= budget.name%></em></h1>
+    <h5>Name: <%= budget.name%></h5>
+    <h5>Date:  <%= budget.date%></h5>
+    <h5>To/From: <%= budget.from%></h5>
+    <h5>Amount: <%= budget.amount%></h5>
+    <h5>Added Note: <%= budget.tags%></h5>
+    <a href="http://localhost:3000/budget"><button>Back</a></button>
+
+</body>
+</html>
